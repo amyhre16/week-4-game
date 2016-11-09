@@ -10,22 +10,27 @@
 	</head>
 
 	<body>
-		<section id="characterPool">
-			<div id="character1" class="character" hp="120" attack="5" counter="8" baseAttack="5" style="background-color: blue; height: 100px; width: 100px; float: left;">Character1</div>
-			<div id="character2" class="character" hp="115" attack="8" counter="6" baseAttack="8" style="background-color: red; height: 100px; width: 100px; float: left;">Character2</div>
-			<div id="character3" class="character" hp="150" attack="10" counter="10" baseAttack="10" style="background-color: orange; height: 100px; width: 100px; float: left;">Character3</div>
-			<div id="character4" class="character" hp="175" attack="7" counter="15" baseAttack="7" style="background-color: yellow; height: 100px; width: 100px; float: left;">Character4</div>
+		<section id="characterPool" style="width: 100%; height: 150px;">
+			<div id="character1" class="character" baseHP="120" attack="5" baseAttack="5" counter="8" style="background-color: blue; height: 100px; width: 100px; float: left; position: relative;">Character1
+				<span id="hp1" style="position: absolute; bottom: 0;">120</span></div>
+				<!-- <script type="text/javascript">alert($('#hp1').text());</script> -->
+			<div id="character2" class="character" baseHP="115" attack="8" baseAttack="8" counter="9" style="background-color: red; height: 100px; width: 100px; float: left;">Character2
+				<span id="hp2">115</span></div>
+			<div id="character3" class="character" baseHP="150" attack="10" baseAttack="10" counter="10" style="background-color: orange; height: 100px; width: 100px; float: left;">Character3
+				<span id="hp3">150</span></div>
+			<div id="character4" class="character" baseHP="175" attack="7" baseAttack="7"  counter="15" style="background-color: yellow; height: 100px; width: 100px; float: left;">Character4
+				<span id="hp4">175</span></div>
 		</section>
 
-		<section id="attackerPool" style="clear: both;">
+		<section id="attackerPool" style="clear: both; background-color: black; height: 150px; width: 150px;">
 			
 		</section>
 
-		<section id="enemyPool" style="clear: both;">
+		<section id="enemyPool" style="clear: both; background-color: purple; height: 150px; width: 150px;">
 			
 		</section>
 		<button id="attackBtn" style="clear: both;">Attaaaaaaaack!!!!!</button>
-		<section id="deadPool" style="clear: both;"> <!-- get it? Dead Pool....lololol-->
+		<section id="deadPool" style="clear: both; background-color: green; height: 150px; width: 150px;"> <!-- get it? Dead Pool....lololol-->
 			
 		</section>
 	</body>

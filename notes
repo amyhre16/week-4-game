@@ -1,0 +1,23 @@
+game starts w/ all four players at the top (display name and health)
+
+player selects enemy to fight, then defeat all remaining fighters
+	player chooses characters by clicking on their picture
+	once selected, enemy moves to defender area
+	once defeated, the enemy must move to different part of the screen
+player attacks by clicking attack button
+	each attack damages the enemy
+	enemy immediately launches counterattack and damages player
+player wins by defeating all enemies, loses when its hp goes to 0
+
+
+characters have attributes
+	health points, attack power, counter attack power
+	all characters attributes must differ 
+when player attacks, its attack power increases by its base attack power
+enemy character only has counter attack power which remains constant
+characters cannot recover hp
+player should be able to win no matter what character they choose
+
+
+
+THEME: monty python and the holy grail
