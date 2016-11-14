@@ -4,34 +4,55 @@
 	<head>
 		<title>RPG! RPG! RPG!</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="assets/javascript/game.js"></script>
 	</head>
 
 	<body>
-		<section id="characterPool" style="width: 100%; height: 150px;">
-			<div id="character1" class="character" baseHP="120" attack="5" baseAttack="5" counter="8" style="background-color: blue; height: 100px; width: 100px; float: left; position: relative;">Character1
-				<span id="hp1" style="position: absolute; bottom: 0;">120</span></div>
-				<!-- <script type="text/javascript">alert($('#hp1').text());</script> -->
-			<div id="character2" class="character" baseHP="115" attack="8" baseAttack="8" counter="9" style="background-color: red; height: 100px; width: 100px; float: left;">Character2
-				<span id="hp2">115</span></div>
-			<div id="character3" class="character" baseHP="150" attack="10" baseAttack="10" counter="10" style="background-color: orange; height: 100px; width: 100px; float: left;">Character3
-				<span id="hp3">150</span></div>
-			<div id="character4" class="character" baseHP="175" attack="7" baseAttack="7"  counter="15" style="background-color: yellow; height: 100px; width: 100px; float: left;">Character4
-				<span id="hp4">175</span></div>
-		</section>
+		<div class="page-header"><h1>Welcome to the Monty Python and the Holy Grail RPG (role playing game if you're a n00b) !</h1></div>
+		<div class="container">
+			<div class="row" id="characterPool">
+				<div id="character1" class="character" data-baseHP="120" data-attack="5" data-baseAttack="5" data-counter="8" data-name="King Arthur">King Arthur
+					<img src="assets/images/king_arthur.jpg" alt="King Arthur">
+					<p id="hp1">120</p>
+					</div>
+				<div id="character2" class="character" data-baseHP="115" data-attack="6" data-baseAttack="6" data-counter="9" data-name="Black Knight">Black Knight
+					<img src="assets/images/black_knight.jpg" alt="Black Knight">
+					<p id="hp2">115</p>
+					</div>
+				<div id="character3" class="character" data-baseHP="150" data-attack="7" data-baseAttack="7 " data-counter="10" data-name="The Knights Who Say Ni">The Knights Who Say Ni
+					<img src="assets/images/knights_who_say_ni.jpg" alt="The Knights Who Say Ni">
+					<p id="hp3">150</p>
+					</div>
+				<div id="character4" class="character" data-baseHP="180" data-attack="8" data-baseAttack="8"  data-counter="20" data-name="The Killer Rabbit of Caerbannog">The Killer Rabbit of Caerbannog
+					<img src="assets/images/rabbit.jpg" alt="The Killer Rabbit of Caerbannog">
+					<p id="hp4">180</p>
+				</div>
+			</div>
+			<h3>Your Character</h3>
+			<div class="row" id="attackerPool" >
+				
+			</div>
+			<h3>Enemies Available to Attack</h3>
+			<div id="availableEnemies">
+				
+			</div>
+			<h3>Defender</h3>
+			<div class="row" id="enemyPool" >
+				
+			</div>
+			<div id="clear"></div>
+			<button type="button" id="attackBtn" class="btn btn-primary">Attaaaaaaaack!!!!!</button>
+			<div class="row" id="messages">
+				
+			</div>
+			<button type="button" id="reset" class="btn btn-warning">Run away! Run away!</button>
+			<div class="row" id="deadPool"> <!-- get it? Dead Pool....lololol-->
+				
+			</div>
 
-		<section id="attackerPool" style="clear: both; background-color: black; height: 150px; width: 150px;">
-			
-		</section>
-
-		<section id="enemyPool" style="clear: both; background-color: purple; height: 150px; width: 150px;">
-			
-		</section>
-		<button id="attackBtn" style="clear: both;">Attaaaaaaaack!!!!!</button>
-		<section id="deadPool" style="clear: both; background-color: green; height: 150px; width: 150px;"> <!-- get it? Dead Pool....lololol-->
-			
-		</section>
+		</div>
 	</body>
 </html>

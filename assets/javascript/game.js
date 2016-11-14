@@ -1,60 +1,71 @@
 $(document).ready(function() {
+	var sound;
+
 	// user clicks on a character to choose attacker
-	$('.character').on('click', function() {
-		// console.log($(this).parent().attr('id'));
-		// console.log($(this).attr('hp'));
-		// console.log($(this).attr('attack'));
-		// console.log($(this).attr('counter'));
+	$('#characterPool').children().on('click', function() {
+		$('#messages').empty();
 		if ($('#attackerPool').children().length == 0) {
-			// $('#attackerPool').append($(this));
 			$(this).appendTo('#attackerPool');
+			$('#characterPool').children().appendTo('#availableEnemies');
 		}
 
-		else if ($('#enemyPool').children().length == 0) {
+		// // else if ($('#enemyPool').children().length == 0) {
+		// // 	$(this).appendTo('#enemyPool');
+		// // }
+	});
+
+	$('div').on('click', '.character', function() {
+		if ($(this).attr('id') == 'character1') {
+			sound = new Audio('assets/sounds/arthur.m4a');
+			sound.play();
+		}
+
+		else if ($(this).attr('id') == 'character2') {
+			sound = new Audio('assets/sounds/black_knight.m4a');
+			sound.play();	
+		}
+
+		else if ($(this).attr('id') == 'character3') {
+			sound = new Audio('assets/sounds/knights_who_say_ni.m4a');
+			sound.play();
+		}
+
+		else if ($(this).attr('id') == 'character4') {
+			sound = new Audio('assets/sounds/the_rabbit.m4a');
+			sound.play();
+		}
+	});
+
+	$('#availableEnemies').on('click', '.character', function() {
+		$('#messages').empty();
+		if ($('#enemyPool').children().length == 0) {
 			$(this).appendTo('#enemyPool');
 		}
 	});
 
 	$('#attackBtn').on('click', function() {
+		$('#messages').empty();
 		var attacker = $('#attackerPool').children();
 		var enemy = $('#enemyPool').children();
-		if ((attacker.length != 0) && (enemy.length != 0)) {
-			// attack($('#attackerPool').children(), $('#enemyPool').children());
-			/*attack(attacker, enemy);
-			// if (parseInt(enemy.attr('hp')) <= 0) {
-			if (enemy.children().text() <= 0 && ) {
-				// still characters left to attack
-				if ($('#characterPool').children().length != 0) {
-					enemy.children().text(0);
-					enemy.appendTo($('#deadPool'));	
-				}
-				// defeated the last enemy and won the game!
-				else {
-					alert("You won!!!! :D");
-					reset();
-				}
-			}
 
-			// if (parseInt(attacker.attr('hp')) <= 0) {
-			else if (attacker.children().text() <= 0) {
-				// create reset function that moves all characters back to #characterPool and resets all attributes
-				alert("you lose");
-				reset();
-			}*/
+		if ((attacker.length != 0) && (enemy.length != 0) /*&& ($('#availableEnemies').children().length != 0)*/) {
 
 			attack(attacker, enemy);
 
 			// attack killed the enemy
 			if (enemy.children().text() <= 0) {
 				// still characters left to attack
-				if ($('#characterPool').children().length != 0) {
+				if ($('#availableEnemies').children().length != 0) {
 					enemy.children().text(0);
 					enemy.appendTo($('#deadPool'));	
 				}
 				// defeated the last enemy and won the game!
 				else {
-					alert("You won!!!! :D");
-					reset();
+					enemy.appendTo($('#deadPool'));
+					displayMessage("You won!");
+					$(this).prop('disabled', true);
+					$('#reset').prop('disabled', false);
+					$('#reset').show();
 				}
 			}
 
@@ -63,30 +74,57 @@ $(document).ready(function() {
 				counter(attacker, enemy);
 
 				if (/*parseInt(*/attacker.children().text() <= 0) {
-					alert("You lose! D:");
-					reset();
+					attacker.children().text("0");
+					displayMessage("Run away! Run away!<br>You have been defeated!");
+					$(this).prop('disabled', true);
+					$('#reset').show();
+					// reset();
 				}
 			}
 		}
+
+		else if (attacker.length == 0) {
+			displayMessage("You have not selected an attacker. Please select an attacker then try again.");
+		}
+
+		else if (attacker.length != 0 && enemy.length == 0) {
+			displayMessage("You have not selected an enemy. Please select and enemy then chunk the Holy Hand Grenade at him!");
+		}
+
+	});
+
+	$('#reset').on('click', function() {
+		$('#messages').empty();
+		reset();
 	});
 
 	function attack(attacker, enemy) {
-		// var enemyDamage = enemy.attr('hp') - attacker.attr('attack');
-		var enemyDamage = enemy.children().text() - attacker.attr('attack');
-		enemy.children().html(enemyDamage);
-		console.log("New enemy hp: " + enemyDamage);
-		var attackerPower = parseInt(attacker.attr('attack')) + parseInt(attacker.attr('baseAttack'));
-		attacker.attr('attack', attackerPower);
+		$('#messages').empty();
+		// var enemyDamage = enemy.attr('hp') - attacker.attr('data-attack');
+		var enemyHP = enemy.children().next().text() - attacker.attr('data-attack');
+		enemy.children().next().html(enemyHP);
 
-		/*var attackerDamage = attacker.children().text() - enemy.attr('counter');
+		$('#messages').append("<p>" + attacker.attr('data-name') + " attacked " + enemy.attr('data-name') + " for " + attacker.attr('data-attack') +" damage</p>");
+		// console.log("New enemy hp: " + enemyDamage);
+		var attackerPower = parseInt(attacker.attr('data-attack')) + parseInt(attacker.attr('data-baseAttack'));
+		attacker.attr('data-attack', attackerPower);
+
+		/*var attackerDamage = attacker.children().text() - enemy.attr('data-counter');
 		attacker.children().html(attackerDamage);
 		// attacker.attr('hp', attackerDamage);*/
 	}
 
 	function counter(attacker, enemy) {
-		var attackerDamage = attacker.children().text() - enemy.attr('counter');
-		attacker.children().html(attackerDamage);
-		console.log("New attacker hp: " + attackerDamage);
+		var attackerHP = attacker.children().next().text() - enemy.attr('data-counter');
+		attacker.children().next().html(attackerHP);
+		// console.log("New attacker hp: " + attackerDamage);
+
+		$('#messages').append("<p>" + enemy.attr('data-name') + " countered for " + enemy.attr('data-counter') + " damage</p>");;
+		// $('#messages').text()
+	}
+
+	function displayMessage(message) {
+		$('#messages').html(message);
 	}
 
 	function reset() {
@@ -96,8 +134,8 @@ $(document).ready(function() {
 		$('#character3').appendTo($('#characterPool'));
 		$('#character4').appendTo($('#characterPool'));
 		// fill arrays with the base (starting) values for the hp and attack
-		var baseHP = [$('#character1').attr('baseHP'), $('#character2').attr('baseHP'), $('#character3').attr('baseHP'), $('#character4').attr('baseHP')];
-		var baseAttack = [$('#character1').attr('baseAttack'), $('#character2').attr('baseAttack'), $('#character3').attr('baseAttack'), $('#character4').attr('baseAttack')];
+		var baseHP = [$('#character1').attr('data-baseHP'), $('#character2').attr('data-baseHP'), $('#character3').attr('data-baseHP'), $('#character4').attr('data-baseHP')];
+		var baseAttack = [$('#character1').attr('data-baseAttack'), $('#character2').attr('data-baseAttack'), $('#character3').attr('data-baseAttack'), $('#character4').attr('data-baseAttack')];
 		// assign the base hp to the hp attribute to reset it
 		$('#character1').children().html(baseHP[0]);
 		$('#character2').children().html(baseHP[1]);
@@ -108,9 +146,15 @@ $(document).ready(function() {
 		$('#character3').attr('hp', baseHP[2]);
 		$('#character4').attr('hp', baseHP[3]);*/
 		// assign the base attack to the attack attribute to reset it
-		$('#character1').attr('attack', baseAttack[0]);
-		$('#character2').attr('attack', baseAttack[1]);
-		$('#character3').attr('attack', baseAttack[2]);
-		$('#character4').attr('attack', baseAttack[3]);
+		$('#character1').attr('data-attack', baseAttack[0]);
+		$('#character2').attr('data-attack', baseAttack[1]);
+		$('#character3').attr('data-attack', baseAttack[2]);
+		$('#character4').attr('data-attack', baseAttack[3]);
+
+		$('#messages').empty();
+
+		$('#attackBtn').prop('disabled', false);
+		$('#reset').prop('disabled', true);
+		$('#reset').hide();
 	}
 });
