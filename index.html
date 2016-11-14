@@ -13,46 +13,101 @@
 	<body>
 		<div class="page-header"><h1>Welcome to the Monty Python and the Holy Grail RPG (role playing game if you're a n00b) !</h1></div>
 		<div class="container">
-			<div class="row" id="characterPool">
-				<div id="character1" class="character" data-baseHP="120" data-attack="5" data-baseAttack="5" data-counter="8" data-name="King Arthur">King Arthur
-					<img src="assets/images/king_arthur.jpg" alt="King Arthur">
-					<p id="hp1">120</p>
+
+			<div class="row">
+				<div class="col-sm-12" id="characterPool">
+					<div id="character1" class="character" data-baseHP="120" data-attack="5" data-baseAttack="5" data-counter="8" data-name="King Arthur">King Arthur
+						<img src="assets/images/king_arthur.jpg" alt="King Arthur">
+						<p id="hp1">120</p>
+						</div>
+					<div id="character2" class="character" data-baseHP="115" data-attack="6" data-baseAttack="6" data-counter="9" data-name="Black Knight">Black Knight
+						<img src="assets/images/black_knight.jpg" alt="Black Knight">
+						<p id="hp2">115</p>
+						</div>
+					<div id="character3" class="character" data-baseHP="150" data-attack="7" data-baseAttack="7 " data-counter="10" data-name="The Knights Who Say Ni">The Knights Who Say Ni
+						<img src="assets/images/knights_who_say_ni.jpg" alt="The Knights Who Say Ni">
+						<p id= "hp3">150</p>
+						</div>
+					<div id="character4" class="character" data-baseHP="180" data-attack="8" data-baseAttack="8"  data-counter="20" data-name="The Killer Rabbit of Caerbannog">The Killer Rabbit of Caerbannog
+						<img src="assets/images/rabbit.jpg" alt="The Killer Rabbit of Caerbannog">
+						<p id="hp4">180</p>
 					</div>
-				<div id="character2" class="character" data-baseHP="115" data-attack="6" data-baseAttack="6" data-counter="9" data-name="Black Knight">Black Knight
-					<img src="assets/images/black_knight.jpg" alt="Black Knight">
-					<p id="hp2">115</p>
-					</div>
-				<div id="character3" class="character" data-baseHP="150" data-attack="7" data-baseAttack="7 " data-counter="10" data-name="The Knights Who Say Ni">The Knights Who Say Ni
-					<img src="assets/images/knights_who_say_ni.jpg" alt="The Knights Who Say Ni">
-					<p id="hp3">150</p>
-					</div>
-				<div id="character4" class="character" data-baseHP="180" data-attack="8" data-baseAttack="8"  data-counter="20" data-name="The Killer Rabbit of Caerbannog">The Killer Rabbit of Caerbannog
-					<img src="assets/images/rabbit.jpg" alt="The Killer Rabbit of Caerbannog">
-					<p id="hp4">180</p>
 				</div>
 			</div>
+
 			<h3>Your Character</h3>
-			<div class="row" id="attackerPool" >
-				
-			</div>
-			<h3>Enemies Available to Attack</h3>
-			<div id="availableEnemies">
-				
-			</div>
-			<h3>Defender</h3>
-			<div class="row" id="enemyPool" >
-				
-			</div>
-			<div id="clear"></div>
-			<button type="button" id="attackBtn" class="btn btn-primary">Attaaaaaaaack!!!!!</button>
-			<div class="row" id="messages">
-				
-			</div>
-			<button type="button" id="reset" class="btn btn-warning">Run away! Run away!</button>
-			<div class="row" id="deadPool"> <!-- get it? Dead Pool....lololol-->
-				
+			<div class="row">
+				<div class="col-sm-12" id="attackerPool">
+					
+				</div>
 			</div>
 
+			<h3>Enemies Available to Attack</h3>
+			<div class="row">
+				<div class="col-sm-12" id="availableEnemies">
+					
+				</div>
+			</div>
+			<h3>Defender</h3>
+			<div class="row">
+				<div class="col-sm-12" id="enemyPool">
+					
+				</div>
+			</div>
+
+			<div id="clear"></div>
+			
+			<button type="button" id="attackBtn" class="btn btn-primary" style="margin-top: 10px;">Charge!!!!</button>
+			
+			<div class="row">
+				<div class="col-sm-12" id="messages">
+					
+				</div>
+			</div>
+			
+			<button type="button" id="reset" class="btn btn-warning">Run away! Run away!</button>
+
+			<div class="row"> <!-- get it? Dead Pool....lololol-->
+				<div class="col-sm-12" id="deadPool">
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-12" style="font-family: Arial">
+					<h5>Some of my favorite Monty Python and the Holy Grail clips</h5>
+					<button type="button" id="frenchCastle" class="btn btn-info">
+						<a href="https://www.youtube.com/watch?v=A8yjNbcKkNY" target="_blank">I FART in your general direction!</a>
+					</button>
+					<button type="button" id="witchVillage" class="btn btn-info">
+						<a href="https://www.youtube.com/watch?v=k3jt5ibfRzw" target="_blank">She's a witch! BURN HER!</a>
+					</button>
+					<button type="button" id="africanSwallow" class="btn btn-info">
+						<a href="https://www.youtube.com/watch?v=liIlW-ovx0Y" target="_blank">Are you suggesting coconuts migrate!?</a>
+					</button>
+					<h5>Some of my favorite non-Holy Grail clips</h5>
+					<div id="subRow1">
+						<button type="button" id="robber" class="btn btn-info">
+							<a href="https://www.youtube.com/watch?v=zt8PDTUNyPE" target="_blank">Failure of epic proportions</a>
+						</button>
+						<button type="button" id="sillyInterview" class="btn btn-info">
+							<a href="https://www.youtube.com/watch?v=zt8PDTUNyPE" target="_blank">The interview from HELL</a>
+						</button>
+						<button type="button" id="arguing" class="btn btn-info">
+							<a href="https://www.youtube.com/watch?v=ppK6sxz6epk" target="_blank">I came here for a good argument!</a>
+						</button>
+					</div>
+					<div id="subRow2" style="margin-top: 10px;">
+						<button type="button" id="parrot" class="btn btn-info">
+							<a href="https://www.youtube.com/watch?v=4vuW6tQ0218" target="_blank">Remarkable bird, the Norwegian Blue</a>
+						</button>
+						<button type="button" id="selfDefense" class="btn btn-info">
+							<a href="https://www.youtube.com/watch?v=U90dnUbZMmM" target="_blank">Fruit Ninja before Fruit Ninja was cool</a>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="height: 50px;"></div> <!-- this row is to push the page up a little -->
 		</div>
 	</body>
 </html>

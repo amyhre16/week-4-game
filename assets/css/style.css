@@ -4,9 +4,6 @@
 
 body {
 	background: url(../images/holy_hand_grenade.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 }
 
@@ -14,20 +11,21 @@ h1 {
 	text-align: center;
 }
 
+h1, div {
+	font-family: Old English Text MT;
+}
+
 .row {
 	width: 100%;
-	/*height: 150px;*/
 }
 
 .character {
-	/*height: 100px;*/
-	/*width: 200px;*/
 	float: left;
 	position: relative;
-	/*background-color: orange;*/
 	padding: 5px;
 	margin: 5px;
 	border: 2px inset blue;
+	text-align: center;
 }
 
 .character p {
@@ -39,9 +37,6 @@ h1 {
 }
 
 h4 {
-	/*display: block;
-	margin: auto;
-	text-align: center;*/
 	text-align: center;
 }
 
@@ -64,14 +59,11 @@ button {
 	clear: both;
 }
 
-#messages {
+ #messages {
 	color: #F1F1F1;
-}
+	margin-top: 15px;
+} 
 
-#reset {
-	display: none;
-}
-
-#deadPool {
+#reset, #deadPool {
 	display: none;
 }
