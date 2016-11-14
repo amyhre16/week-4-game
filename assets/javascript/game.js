@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var sound;
+	// var sound;
 
 	// user clicks on a character to choose attacker
 	$('#characterPool').children().on('click', function() {
@@ -16,22 +16,22 @@ $(document).ready(function() {
 
 	$('div').on('click', '.character', function() {
 		if ($(this).attr('id') == 'character1') {
-			sound = new Audio('assets/sounds/arthur.m4a');
+			var sound = new Audio('assets/sounds/arthur.m4a');
 			sound.play();
 		}
 
 		else if ($(this).attr('id') == 'character2') {
-			sound = new Audio('assets/sounds/black_knight.m4a');
+			 var sound = new Audio('assets/sounds/black_knight.m4a');
 			sound.play();	
 		}
 
 		else if ($(this).attr('id') == 'character3') {
-			sound = new Audio('assets/sounds/knights_who_say_ni.m4a');
+			var sound = new Audio('assets/sounds/knights_who_say_ni.m4a');
 			sound.play();
 		}
 
 		else if ($(this).attr('id') == 'character4') {
-			sound = new Audio('assets/sounds/the_rabbit.m4a');
+			var sound = new Audio('assets/sounds/the_rabbit.m4a');
 			sound.play();
 		}
 	});
